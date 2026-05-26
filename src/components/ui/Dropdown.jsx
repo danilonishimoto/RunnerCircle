@@ -47,7 +47,7 @@ function Dropdown({
             <button
               key={option.value}
               type="button"
-              onClick={() => handleSelect(option)}
+              onClick={() => handleSelect(option.value)}
               className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-50 transition-colors duration-200 first:rounded-t-lg last:rounded-b-lg ${
                 value === option.value
                   ? "bg-brand-green-lime text-brand-graphite font-medium"
