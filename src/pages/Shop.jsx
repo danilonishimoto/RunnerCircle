@@ -2,7 +2,7 @@ import { useState } from "react";
 import Header from "../components/layout/Header";
 import Sidebar from "../components/layout/Sidebar";
 import Carousel from "../components/ui/Carousel";
-import { GET_SHOP } from "../../database/graphql/query/feed";
+import { GET_SHOP } from "../../database/graphql/query/shop";
 import { useQuery } from "@apollo/client/react";
 
 function Shop({ onNavigateToFeed, onNavigateToProfile, onLogout }) {

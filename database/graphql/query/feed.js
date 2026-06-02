@@ -24,12 +24,3 @@ export const GET_FEED_BY_CATEGORY = gql`
   }
 `;
 
-export const GET_SHOP = gql`
-  query GetShop {
-    allShops {
-      image
-      title
-      price
-    }
-  }
-`

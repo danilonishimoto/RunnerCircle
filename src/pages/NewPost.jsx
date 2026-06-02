@@ -2,13 +2,40 @@ import Header from '../components/layout/Header'
 import Sidebar from '../components/layout/Sidebar'
 import BottomNavigation from '../components/layout/BottomNavigation'
 import NewPostForm from '../components/forms/NewPostForm'
+import { ADD_FEED_POST } from '../../database/graphql/mutation/feed'
+import { useMutation } from '@apollo/client/react'
+import { GET_FEED, GET_FEED_BY_CATEGORY } from '../../database/graphql/query/feed'
 
 function NewPost({ onNavigateToFeed }) {
-  const handleSubmit = (formData) => {
+  const [addFeedPost, {loading: savingPost}] = useMutation(ADD_FEED_POST, {
+    refetchQueries: [{ query: GET_FEED,}, { query: GET_FEED_BY_CATEGORY}]
+  })
+  
+  const handleSubmit = async(formData) => {
     console.log('Nova postagem:', formData)
-    // Aqui seria onde salvaria os dados no backend
-    // Por enquanto, só navega de volta ao feed
-    onNavigateToFeed?.()
+    try {
+      const formParams = {
+        user: {
+          id: 1,
+          name: 'Danilo Nishimoto'
+        },
+        time: parseInt(formData.tempo) * 60,
+        stats: {
+          distance: formData.distance + 'Km',
+          calories: formData.calories,
+          heartRate: formData.heartRate + 'BPM'
+        }, 
+        category: formData.tipoTreino,
+        description: formData.descricao,
+        timestamp: new Date().toISOString()
+      }
+
+      await addFeedPost({variables: formParams })
+      onNavigateToFeed?.()
+
+     } catch(error) {
+      console.error('Erro ao salvar treino:', error)
+     }
   }
 
   const handleCancel = () => {
@@ -29,6 +56,7 @@ function NewPost({ onNavigateToFeed }) {
             <NewPostForm 
               onSubmit={handleSubmit}
               onCancel={handleCancel}
+              loading={savingPost}
             />
           </div>
         </main>
