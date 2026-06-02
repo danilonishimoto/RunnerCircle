@@ -114,3 +114,33 @@ export const feed = [
 		timestamp: '2025-01-13T17:20:00Z',
 	},
 ];
+export const shop = [
+	{
+		id: 1,
+		image: '../public/images/sneaker.png',
+		title: 'Tênis de Corrida Nike Air Zoom Pegasus',
+		description: 'Tênis de corrida da Nike, ideal para treinos e competições.',
+		price: 499.99,
+	},
+	{
+		id: 2,
+		image: '../public/images/water-bottle.png',
+		title: 'Garrafa de Água Hidrate Spark 3',
+		description: 'Garrafa de água inteligente que monitora a hidratação durante o dia.',
+		price: 199.99,
+	},
+	{
+		id: 3,
+		image: '../public/images/smart-watch.png',
+		title: 'Relógio GPS Garmin Forerunner 245',
+		description: 'Relógio GPS para corredores, com monitoramento de frequência cardíaca e métricas avançadas.',
+		price: 1499.99,
+	},
+	{
+		id: 4,
+		image: '../public/images/running-shirt.png',
+		title: 'Camiseta de Corrida Nike Dri-FIT',
+		description: 'Camiseta de corrida da Nike, feita com tecido Dri-FIT para manter o corpo seco durante o treino.',
+		price: 99.99,
+	}
+]

@@ -1,12 +1,14 @@
 import FeedIcon from '@mui/icons-material/Feed'
 import PersonIcon from '@mui/icons-material/Person'
 import LogoutIcon from '@mui/icons-material/Logout'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 
 function Sidebar({ activeItem = 'feed', onItemClick }) {
   const getIcon = (iconId) => {
     const iconProps = { className: "w-6 h-6" }
     switch (iconId) {
       case 'feed': return <FeedIcon {...iconProps} />
+      case 'shop': return <ShoppingCartIcon {...iconProps} />
       case 'profile': return <PersonIcon {...iconProps} />
       case 'logout': return <LogoutIcon {...iconProps} />
       default: return null
@@ -15,6 +17,7 @@ function Sidebar({ activeItem = 'feed', onItemClick }) {
 
   const menuItems = [
     { id: 'feed', label: 'Feed' },
+    { id: 'shop', label: 'Shop'},
     { id: 'profile', label: 'Perfil' },
     { id: 'logout', label: 'Logout' }
   ]

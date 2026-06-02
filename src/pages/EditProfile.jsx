@@ -5,7 +5,7 @@ import EditProfileForm from '../components/forms/EditProfileForm'
 
 import { useState } from 'react'
 
-function EditProfile({ onNavigateToFeed, onNavigateToNewPost, onLogout }) {
+function EditProfile({ onNavigateToFeed, onNavigateToNewPost, onNavigateToShop, onLogout }) {
   const [activeItem, setActiveItem] = useState('profile')
 
   const handleMenuClick = (itemId) => {
@@ -15,6 +15,8 @@ function EditProfile({ onNavigateToFeed, onNavigateToNewPost, onLogout }) {
       onNavigateToFeed?.()
     } else if (itemId === 'logout') {
       onLogout?.()
+    } else if (itemId === 'shop') {
+      onNavigateToShop?.()
     }
   }
   const handleSubmit = (formData) => {

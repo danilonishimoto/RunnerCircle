@@ -10,7 +10,7 @@ import Dropdown from "../components/ui/Dropdown";
 import { GET_FEED } from "../../database/graphql/query/feed";
 import { GET_FEED_BY_CATEGORY } from "../../database/graphql/query/feed";
 
-function Feed({ onNavigateToNewPost, onNavigateToProfile, onLogout }) {
+function Feed({ onNavigateToNewPost, onNavigateToProfile, onNavigateToShop, onLogout }) {
   const [activeItem, setActiveItem] = useState("feed");
   const [workouts, setWorkouts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -47,6 +47,8 @@ function Feed({ onNavigateToNewPost, onNavigateToProfile, onLogout }) {
       onNavigateToProfile?.();
     } else if (itemId === "logout") {
       onLogout?.();
+    } else if (itemId === 'shop') {
+      onNavigateToShop?.();
     }
   };
 
