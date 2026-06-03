@@ -18,7 +18,7 @@ function NewPost({ onNavigateToFeed }) {
             data: { allFeeds: [createFeed, ...existingFeed.allFeeds] },
           });
         } 
-      } catch (error){
+      } catch (error) {
         console.warn('Cache update error:', error)
       }
       try {
